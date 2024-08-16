@@ -12,4 +12,4 @@ jobs:
       - name: Run a multi-line script
         shell: bash
         run: |
-          cpanm -v ExtUtils-Manifest
+          cpanm -v ExtUtils::Manifest

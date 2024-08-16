@@ -1,0 +1,15 @@
+name: ExtUtils-Manifest
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  install:
+    runs-on: windows-latest
+
+    steps:
+      - name: Run a multi-line script
+        shell: bash
+        run: |
+          cpanm -v ExtUtils-Manifest

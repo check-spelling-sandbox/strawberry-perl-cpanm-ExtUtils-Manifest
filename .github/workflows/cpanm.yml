@@ -9,7 +9,17 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Run a multi-line script
+      - name: perl version
         shell: bash
         run: |
-          cpanm -v ExtUtils::Manifest
+          (
+            echo '# Perl version'
+            perl -V 2>&1
+          ) | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: cpanm ExtUtils::Manifest
+        shell: bash
+        run: |
+          (
+            echo '# cpanm install phase'
+            cpanm -v ExtUtils::Manifest 2>&1
+          ) | tee -a "$GITHUB_STEP_SUMMARY"

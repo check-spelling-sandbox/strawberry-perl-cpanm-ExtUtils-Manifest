@@ -16,13 +16,19 @@ jobs:
       - name: perl version
         shell: bash
         run: |
+          PATH="/c/hostedtoolcache/windows/strawberry-perl/5.32.1/x64/perl/bin:$PATH"
           (
+            echo "# Path"
+            echo $PATH
+            echo "# Perl"
+            command -v perl
             echo '# Perl version'
             perl -V 2>&1
           ) | tee -a "$GITHUB_STEP_SUMMARY"
       - name: cpanm ExtUtils::Manifest
         shell: bash
         run: |
+          PATH="/c/hostedtoolcache/windows/strawberry-perl/5.32.1/x64/perl/bin:$PATH"
           (
             echo '# cpanm install phase'
             cpanm -v ExtUtils::Manifest 2>&1

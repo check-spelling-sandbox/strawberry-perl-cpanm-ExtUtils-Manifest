@@ -9,6 +9,10 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: "5.32"
+          distribution: strawberry
       - name: perl version
         shell: bash
         run: |
